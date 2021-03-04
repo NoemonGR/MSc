@@ -1,0 +1,9 @@
+Student:Petros Aggelopoulos 
+	AM:786950 
+	Father's Name:Nikolaos 
+	Street:20 
+	Street Number:2104825327 
+	Telephone:1231231230 
+	Mobile:-1952624956 
+	LessonID:1200
+
