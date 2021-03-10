@@ -1,5 +1,5 @@
 # Υλοποιήστε σε γλώσσα προγραμματισμού της επιλογής σας, Ντετερμινιστικό Αυτόματο Στοίβας
-# (ΝΑΣ) που μοντελοποιεί εκφράσεις απoτελούμενες μόνο από δεξιές και αριστερές παρενθέσεις,
+# (ΝΑΣ) (DFA) που μοντελοποιεί εκφράσεις απoτελούμενες μόνο από δεξιές και αριστερές παρενθέσεις,
 # κατά τρόπο ώστε:
 
 # όσες αριστερές παρενθέσεις ανοίγουν συνολικά, τόσες κλείνουν και κοιτάζοντας την έκφραση από
@@ -18,8 +18,8 @@
 # επιθέτου ενός άλλου εκ των φοιτητών/φοιτητριών της ομάδας (επιλέξτε). Και τα δύο πρέπει
 # να είναι σε αγγλικό αλφάβητο.
 
-T = ["("] #open
-A = [")"] #close
+K = ["("] #open #Koutsoukoglou
+A = [")"] #close #Aggelopoulos
 
 # Example:
 #     YES-->  (),(())
@@ -30,15 +30,15 @@ x=input("Give Parenthesis String : ")
 print("Analyzing Parenthesis String!")
 
 def check(x):
-    stack=[]
+    stack=[] #LIFO stack
     for i in x:
-        if i in T:
+        if i in K:
             stack.append(i)
         elif i in A:
             pos=A.index(i)
             if ((len(stack)>0) and
-                (T[pos]==stack[len(stack)-1])):
-                stack.pop()
+                (K[pos]==stack[len(stack)-1])):
+                print("Popped: ",stack.pop())
             else:
                 return "NO"
     if len(stack)==0:

@@ -38,7 +38,7 @@ class Bridge:
                 self.arrive_bridge(min_cars, max_cars, min_t, max_t)
                 self.bridge_lock.acquire()
                 self.bridge_lock.release()
-                logging.info("Left Lane is starting to pass")
+                logging.info("Left...")
 
                 temp = self.cross_bridge(self.cars_left, lane, min_t, max_t)
                 self.cars_left = temp
@@ -48,7 +48,7 @@ class Bridge:
         while True:
             self.arrive_bridge(min_cars, max_cars, min_t, max_t)
             self.bridge_lock.acquire()
-            logging.info("Right Lane is starting to pass")
+            logging.info("Right...")
             temp = self.cross_bridge(self.cars_right, lane, min_t, max_t)
             self.cars_right = temp
             self.bridge_lock.release()
@@ -68,7 +68,7 @@ class Bridge:
 
     def arrive_bridge(self, min_cars, max_cars, min_t, max_t):
         n = [self.cars_left, self.cars_right]
-        logging.info('Cars are arriving')
+        logging.info('Arriving')
         for i in range(random.randint(min_cars, max_cars)):
             self.t_arrive(min_t, max_t)
             choice = random.choice(n)
